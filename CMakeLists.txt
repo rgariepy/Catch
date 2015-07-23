@@ -52,12 +52,8 @@ foreach(p INCLUDE CMAKE)
     endif()
 endforeach()
 
-#file(GLOB_RECURSE INCLUDE_FILES
-#  ${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp
-#  ${CMAKE_CURRENT_SOURCE_DIR}/include/*.h
-#)
 install(
-  FILES ${CMAKE_CURRENT_SOURCE_DIR}/single_include/catch.hpp #${INCLUDE_FILES}
+  DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/
   DESTINATION ${INSTALL_INCLUDE_DIR}
 )
 
