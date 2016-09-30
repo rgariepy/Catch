@@ -14,7 +14,7 @@ ExternalProject_Add(${EP_NAME}
   # the source
   URL https://github.com/philsquared/Catch/archive/v1.5.7.zip
   # Install to devel
-  INSTALL_DIR ${CATKIN_DEVEL_PREFIX}/install
+  INSTALL_DIR ${CATKIN_DEVEL_PREFIX}/catch
   # don't update, we lock the version
   UPDATE_COMMAND ""
   # don't configure, it's header only
