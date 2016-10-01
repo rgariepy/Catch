@@ -12,7 +12,7 @@ ExternalProject_Add(${EP_NAME}
   # prefix for the external project in the build folder
   PREFIX external
   # the source
-  URL https://github.com/philsquared/Catch/archive/v1.5.7.zip
+  URL https://github.com/utiasASRL/Catch/archive/feature/stl-container-approx.zip
   # Install to devel
   INSTALL_DIR ${CATKIN_DEVEL_PREFIX}/catch
   # don't update, we lock the version
