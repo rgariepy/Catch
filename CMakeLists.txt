@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 # the project name should match that of the external project (kinda sketchy)
 project(catch)
 
-find_package(catkin REQUIRED)
+find_package(catkin_optional REQUIRED)
 
 include(ExternalProject)
 
@@ -14,7 +14,7 @@ ExternalProject_Add(${EP_NAME}
   # the source
   URL https://github.com/utiasASRL/Catch/archive/feature/stl-container-approx.zip
   # Install to devel
-  INSTALL_DIR ${CATKIN_DEVEL_PREFIX}/catch
+  INSTALL_DIR ${CMAKE_DEVEL_PREFIX}/catch
   # don't update, we lock the version
   UPDATE_COMMAND ""
   # don't configure, it's header only
@@ -25,15 +25,13 @@ ExternalProject_Add(${EP_NAME}
   INSTALL_COMMAND rsync -r <SOURCE_DIR>/include <INSTALL_DIR>
 )
 
-
 # let catkin install the include directory
 ExternalProject_Get_Property(${EP_NAME} INSTALL_DIR)
 # we have to make it so it exists for catkin at generation time
 file(MAKE_DIRECTORY ${INSTALL_DIR}/include)
-catkin_package(
+co_export(
   INCLUDE_DIRS ${INSTALL_DIR}/include
 )
 
 # install the include directory from 
-install(DIRECTORY ${INSTALL_DIR}/include/
-        DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION})
+co_install()
